@@ -4,6 +4,11 @@
 
 def move_zeros(lst):
     # Здесь нужно написать код
+    first_index = 0
+    for index in range(len(lst)):
+        if lst[index] != 0:
+            lst[index], lst[first_index] = lst[first_index], lst[index]
+            first_index += 1
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
