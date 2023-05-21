@@ -20,18 +20,20 @@
 
 def everything_for_your_cat(cats_data):
     """
-    Сопоставление человеков к их котикам для последующего вывода
+    Сопоставление человеков к их котикам для последующего вывода человека и всех его котов
     :param cats_data: список кортежей
-    :return: строка
+    :return: строка со всеми значениями подходящими под условие
     """
     cats_1 = {}
     our_str = ''
     for cat in cats_data:
         name = cat[2] + ' ' + cat[3]
+        kot = cat[0] + ', ' + str(cat[1])
         if name not in cats_1:
-            cats_1[name] = cat[0] + ', ' + str(cat[1])
+
+            cats_1[name] = kot
         else:
-            cats_1[name] += '; ' + cat[0] + ', ' + str(cat[1])
+            cats_1[name] += '; ' + kot
 
     for cat, j in cats_1.items():
         our_str += f'{cat}: {j}''\n'

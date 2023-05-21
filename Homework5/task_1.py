@@ -10,16 +10,22 @@ def letter_stat(our_str):
     """
     Получение словаря, где в качестве ключей буквы строки, а значениями являются числа,
 # соответствующие количеству вхождений данной буквы в строку
-    :param our_str: Строка на вход
-    :return: Словарь на выход
+    :param our_str: Строка на вход 'letter'
+    :return: Словарь на выход, наприер 'letter' --> {'l': 1, 'e': 2, 't': 2, 'r': 1}
     """
     letters_dict = {}
-    for key in range(len(our_str)):
-        count = 0
-        for n in range(len(our_str)):
-            if our_str[key] == our_str[n]:
-                count += 1
-        letters_dict.update({our_str[key]: count})
+    # for key in range(len(our_str)):  # Первый вариант
+    #     count = 0
+    #     for n in range(len(our_str)):
+    #         if our_str[key] == our_str[n]:
+    #             count += 1
+    #     letters_dict.update({our_str[key]: count})
+    count = 1
+    for n in our_str:  # Второй вариант
+        if n not in letters_dict:
+            letters_dict.update({n: count})
+        else:
+            letters_dict.update({n: letters_dict.get(n) + count})
 
     return letters_dict
 
