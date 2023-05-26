@@ -10,7 +10,6 @@ def global_function():
     def local_function():
         nonlocal msg
         msg = 2
-        return msg
 
     local_function()
 
